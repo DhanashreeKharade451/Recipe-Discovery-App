@@ -13,15 +13,21 @@ console.log(error);
   if (error) return <p>{error}</p>;
 
     return(
-        <div>
-           <h2>Recipe Categories</h2>
-           <div>
-             <Link>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+            <h2> Recipe Categories</h2>
+            {data?.categories?.map((category) => (
+                 <Link key={category.idCategory} to = {`/category/${category.strCAtegory}`}>
                 <div>
-                    <img/>
+                    <img
+                    src={category.strCategoryThumb}
+              alt={category.strCategory}
+              width="200"
+              />
                 </div>
              </Link>
-           </div>
+            ))}
+           
+           
         </div>
         
     )

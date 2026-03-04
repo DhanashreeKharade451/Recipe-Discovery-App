@@ -10,24 +10,28 @@ import SearchResults from './pages/SearchResults';
 
 
 
+
 function App() {
   //const [count, setCount] = useState(0)
 
   return (
     <>
+     
       <Navbar/>
             
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/Category/:categoryName" element={<CategoryPage/>} />
-        <Route path="/Recipe/:recipeId " element={<RecipeDetail/>} />
+        <Route path="/Recipe/:recipeId" element={<RecipeDetail/>} />
           <Route path="/Favorites" element={<Favorites/>} />
           <Route path="/SearchResults" element={<SearchResults/>} />
         {/* <Route path="*" element={<NotFoundPage />} /> Fallback for unmatched routes */}
       </Routes>
 
+     
+
     </>
   )
 }
 
-export default App
+export default App;

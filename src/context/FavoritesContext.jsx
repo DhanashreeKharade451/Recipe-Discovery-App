@@ -3,26 +3,39 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const FavoritesContext = createContext();
 
-function FavoritesContext(){
+// FavoritesProvider component
+export default function FavoritesProvider({children}){
 
-const[favorites, setfavorites] = useLocalStorage("favorites", []);
+const[favorites, setFavorites] = useLocalStorage("favorites", []);
 
-const addFavorites =(id) =>{
+const addFavorite =(id) =>{
     if(!favorites.includes(id)){
-        setfavorites([...favorites, id]);
+        setFavorites([...favorites, id]);
     }
 };
-const removeFavarite = (id) => {
-    setfavorites(favorites.filter((fav) => fav !== id));
+const removeFavorite = (id) => {
+    setFavorites(favorites.filter((fav) => fav !== id));
 }
 
-const isFavorites = (id) =>{
-    re
-}
-
-    return(
-        <div>FavoritesContext</div>
-    );
+const isFavorite = (id) =>{
+    return favorites.includes(id);
 };
 
-export default FavoritesContext;
+    return(
+        <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
+            {children}
+        </FavoritesContext.Provider>
+    );
+}
+
+// Custom hook to use FavoritesContext
+export function useFavorites(){
+    const context = useContext(FavoritesContext);
+
+    if(!context)
+        throw new Error("useFavorites must be used inside FavoritesProvider");
+    return context;
+                
+}
+
+
