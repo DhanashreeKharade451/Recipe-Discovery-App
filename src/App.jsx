@@ -4,7 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
-import RecipeDetail from './components/RecipeCard';
+import RecipeDetail from './pages/RecipeDetail';
 import Favorites from './pages/Favorites';
 import SearchResults from './pages/SearchResults';
 

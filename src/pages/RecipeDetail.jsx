@@ -1,5 +1,6 @@
-export default function RecipeDetail(){
+ function RecipeDetail(){
     return(
         <div>RecipeDetail</div>
-    )
-}
+    );
+};
+export default RecipeDetail;
