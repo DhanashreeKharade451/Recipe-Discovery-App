@@ -16,12 +16,11 @@ function App() {
   return (
     <>
       <Navbar/>
-        
-     
+            
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/Category" element={<CategoryPage/>} />
-        <Route path="/Recipe" element={<RecipeDetail/>} />
+        <Route path="/Category/:categoryName" element={<CategoryPage/>} />
+        <Route path="/Recipe/:recipeId " element={<RecipeDetail/>} />
           <Route path="/Favorites" element={<Favorites/>} />
           <Route path="/SearchResults" element={<SearchResults/>} />
         {/* <Route path="*" element={<NotFoundPage />} /> Fallback for unmatched routes */}

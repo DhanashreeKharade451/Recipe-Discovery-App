@@ -17,9 +17,14 @@ export default function CategoryPage(){
     return(
         <div>
             <h2>{categoryName} Recipes </h2>
-            <div>
-                <Link> <img src="" alt="" />
+            <div style={{display:"flex", flexWrap: "wrap", gap: "20px"}}>
+                {data?.meals.map((meal) => (
+                <Link key={meal.idMeal} to={`/recipe/${meal.idmeal}`}> 
+                   <img src={meal.strMealThumb} alt="150" />
+                   <p>{meal.strMeal}</p>
                 </Link>
+            ))}
+                
             </div>
         </div>
     )
