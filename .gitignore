@@ -1,3 +1,14 @@
+I am looking forword to make my app flow like:
+HomePage
+→ shows categories
+→ click category
+→ CategoryPage shows meals
+→ click meal
+→ RecipeDetail loads
+→ click favorite
+→ Favorites page shows saved items
+
+///////////////////////////////////////////////////////////
 # Logs
 logs
 *.log
