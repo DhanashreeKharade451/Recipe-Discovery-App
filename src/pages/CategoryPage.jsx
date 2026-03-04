@@ -8,7 +8,7 @@ export default function CategoryPage(){
     console.log(categoryName);
 
     const { data, loading, error } = useFetch(
-    `https://www.themealdb.com/api/json/v1/1/categories.filter.php?c=${categoryName}`
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
   );
 
   if (loading) return <p>Loading...</p>;
@@ -17,7 +17,7 @@ export default function CategoryPage(){
     return(
         <div>
             <h2>{categoryName} Recipes </h2>
-            <div style={{display:"flex", flexWrap: "wrap", gap: "20px", backgroundColor: "red"}}>
+            <div style={{display:"flex", flexWrap: "wrap", gap: "20px"}}>
                 {data?.meals.map((meal) => (
                 <Link key={meal.idMeal} to={`/Recipe/${meal.idMeal}`}> 
                    <img src={meal.strMealThumb} alt="150" />
