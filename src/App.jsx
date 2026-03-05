@@ -7,6 +7,8 @@ import CategoryPage from './pages/CategoryPage';
 import RecipeDetail from './pages/RecipeDetail';
 import Favorites from './pages/Favorites';
 import SearchResults from './pages/SearchResults';
+import RecipeCard from './components/RecipeCard';
+import ErrorMessage from './components/ErrorMessage';
 
 
 
@@ -18,11 +20,11 @@ function App() {
     <>
      
       <Navbar/>
-            
+              
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/Category/:categoryName" element={<CategoryPage/>} />
-        <Route path="/Recipe/:recipeId" element={<RecipeDetail/>} />
+        <Route path="/recipe/:recipeId" element={<RecipeDetail/>} />
           <Route path="/Favorites" element={<Favorites/>} />
           <Route path="/search" element={<SearchResults/>} />
         {/* <Route path="*" element={<NotFoundPage />} /> Fallback for unmatched routes */}
