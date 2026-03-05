@@ -23,7 +23,7 @@ export default function HomePage() {
       {data.categories.map((category) => (
         <Link
           key={category.idCategory}
-          to={`/category/${category.strCAtegory}`}
+          to={`/category/${category.strCategory}`}
         >
           <div>
             <img

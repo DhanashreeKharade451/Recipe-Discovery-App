@@ -5,7 +5,7 @@ import { useFavorites } from "../context/FavoritesContext";
  function RecipeDetail(){
 const {recipeId} = useParams();
 
-const {data,loading,error} = useFetch(`www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`);
+const {data,loading,error} = useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`);
 
 const {addFavorite, removeFavorite, isFavorite} = useFavorites();
 
@@ -19,17 +19,17 @@ if (loading) return <p>Loading...</p>;
     return(
         <div>
             <h2>{meal.strMeal}</h2>
-            <img src="meal.strMealThumb" width="300" alt={meal.strMeal}/>
+            <img src={meal.strMealThumb} width="300" alt={meal.strMeal}/>
 
              {/* Favorite Button */}
              <button 
              onClick={()=> isFavorite(recipeId)
-                ? "removeFavorite(recipeId)"
+                ? removeFavorite(recipeId)
                 : addFavorite(recipeId)
              }>
                 {isFavorite(recipeId)
                 ? "Remove from Favorites"
-                : "Add to favorite"
+                : "Add to favorites"
             }</button>
 
             <h3>Instructions</h3>
