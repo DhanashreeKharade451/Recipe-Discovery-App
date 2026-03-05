@@ -24,7 +24,7 @@ function App() {
         <Route path="/Category/:categoryName" element={<CategoryPage/>} />
         <Route path="/Recipe/:recipeId" element={<RecipeDetail/>} />
           <Route path="/Favorites" element={<Favorites/>} />
-          <Route path="/SearchResults" element={<SearchResults/>} />
+          <Route path="/search" element={<SearchResults/>} />
         {/* <Route path="*" element={<NotFoundPage />} /> Fallback for unmatched routes */}
       </Routes>
 

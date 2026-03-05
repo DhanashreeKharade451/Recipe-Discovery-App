@@ -31,7 +31,7 @@ export default function Navbar() {
            value={query}
            onChange={(e) => {setQuery(e.target.value)}}
            />
-          <button onClick={query.strMealThumb}>Search</button>
+          <button type="submit">Search</button>
 
         </form>
 

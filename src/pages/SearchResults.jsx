@@ -5,12 +5,18 @@ function SearchResults() {
   const query = new URLSearchParams(useLocation().search).get("query");
 
   const { data, loading, error } = useFetch(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?s=${query}`,
+    query
+      ?  `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+      : null
   );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-  if (!data?.meals) return <p>No results found.</p>;
+
+  if (!data?.meals || !Array.isArray(data.meals)) {
+    return <p>No results found.</p>;
+  }
+
   return (
     <div>
       <h2>Search Results for "{query}"</h2>

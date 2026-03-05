@@ -8,7 +8,7 @@ export default function CategoryPage(){
     console.log(categoryName);
 
     const { data, loading, error } = useFetch(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
+    `https://www.themealdb.com/api/json/v1/1/search.php?c=${categoryName}`
   );
 
   if (loading) return <p>Loading...</p>;
