@@ -123,18 +123,22 @@ Another challenge was correctly using React Router to handle dynamic routes and 
 1️⃣ Creating a Custom useFetch Hook
 
 I decided to create a reusable useFetch hook instead of writing fetch logic inside every component.
-
 This decision:
-
 Reduced duplicate code.
-
 Made components cleaner and easier to read.
-
 Centralized loading and error handling logic.
-
 Improved maintainability.
-
 By separating data logic from UI components, the structure became more modular and scalable.
+
+**********************
+2️⃣ Using Context API for Favorites
+
+Instead of passing favorite-related state through props (prop drilling), I used the Context API to manage favorites globally.
+This decision:
+Allowed any component (like RecipeCard or Favorites page) to access favorite functions easily
+Kept state management centralized.
+Made the app structure more professional and closer to real-world React applications.
+I also used a custom useLocalStorage hook so favorite recipes persist even after refreshing the browser. This improves user experience and demonstrates understanding of browser storage.
 
 
 ///////////////////////////////////////////////
