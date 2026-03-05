@@ -104,6 +104,37 @@ src/
 │   └── SearchResults.jsx
 │
 └── App.jsx
+///////////////////////////////////////////////
+📘 Reflection
+🚧 Most Challenging Part:
+The most challenging part of this project was handling asynchronous data fetching and managing different UI states (loading, error, and successful data rendering).
+While building the custom useFetch hook, I had to ensure that:
+The loading state updates correctly before and after the API call
+Errors are properly caught and displayed.
+The component does not crash when the API returns null or unexpected data (for example, when data.meals is null and .map() is called).
+Debugging issues like:
+data.meals.map is not a function
+Incorrect query parameters in the search route.helped me better understand how APIs return data and why defensive checks (like optional chaining) are important.
+Another challenge was correctly using React Router to handle dynamic routes and search query parameters.
+*************************************************
+
+
+🧠 Design Decisions
+1️⃣ Creating a Custom useFetch Hook
+
+I decided to create a reusable useFetch hook instead of writing fetch logic inside every component.
+
+This decision:
+
+Reduced duplicate code.
+
+Made components cleaner and easier to read.
+
+Centralized loading and error handling logic.
+
+Improved maintainability.
+
+By separating data logic from UI components, the structure became more modular and scalable.
 
 
 ///////////////////////////////////////////////
