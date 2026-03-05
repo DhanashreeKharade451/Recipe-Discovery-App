@@ -14,6 +14,7 @@ export default function CategoryPage(){
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+  if (!data?.meals) return <p>No meals found.</p>;
 
     return(
         <div>

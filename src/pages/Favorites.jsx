@@ -3,24 +3,59 @@ import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
 
+function Favorites({ id }) {
+  const { Favorites } = useFavorites();
 
-    function FavoriteItem({id}){
-        const {data, loading } =useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+  if (favorites.length === 0) {
+    return <p>No favorite recipes yet. Go add some!</p>;
+  }
 
-        if (loading) return <p>Loading...</p>;
+  return (
+    <div>
+      <h2>Your Favorite Recipes</h2>
 
-        const meal = data?.meals?.[0];
+      {favorites.map((id) => (
+        <FavoriteItem key={id} id={id} />
+      ))}
+    </div>
+  );
 
-        return <RecipeCard meal={meal} />;
-
-        // return(
-        //     <Link to ={`/recipe/${id}`}>
-        //     <div>
-        //         <img src={meal.strMealThumb} width="150" alt={meal.strMeal}/>
-        //         <p>{meal.strMeal}</p>
-        //     </div>
-        //     </Link>
-        // )
+  return (
+    <div>
+      <h2>Your Favorite Recipes</h2>
+      {Favorites.map((id) => (
+        <FavoriteItem key={id} id={id} />
+      ))}
+    </div>
+  );
 }
+
+function FavoriteItem({ id }) {
+  const { data, loading } = useFetch(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
+  );
+
+  if (loading) return <p>Loading...</p>;
+
+  const meal = data?.meals?.[0];
+  return <RecipeCard meal={meal} />;
+}
+// const {data, loading } =useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+
+// if (loading) return <p>Loading...</p>;
+
+// const meal = data?.meals?.[0];
+
+// return <RecipeCard meal={meal} />;
+
+// return(
+//     <Link to ={`/recipe/${id}`}>
+//     <div>
+//         <img src={meal.strMealThumb} width="150" alt={meal.strMeal}/>
+//         <p>{meal.strMeal}</p>
+//     </div>
+//     </Link>
+// )
+//}
 
 export default FavoriteItem;

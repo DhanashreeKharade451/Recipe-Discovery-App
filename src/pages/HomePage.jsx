@@ -12,6 +12,7 @@ export default function HomePage() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+  if (!data?.categories) return <p>No categories found.</p>;
 
   return (
 
